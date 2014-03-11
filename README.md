@@ -43,9 +43,7 @@ You can install MSStringifyMacros in almost any Mac OS X or iOS project. I'm not
 
 ### Cocoapods
 
-1. Add a pod entry for MSStringifyMacros to your Podfile: 
-
-    `pod 'MSStringifyMacros'`
+1. Add a pod entry for MSStringifyMacros to your Podfile: `pod 'MSStringifyMacros'`
 
 2. Install the pod(s) by running: `pod install`
 
@@ -60,12 +58,16 @@ You can install MSStringifyMacros in almost any Mac OS X or iOS project. I'm not
 
 ### Source Files
 
-Alternatively you can directly add the required `MSStringifyMacros*.h` source files to your project.
+Alternatively you can directly add the required source files to your project:
+
+* NSStringifyMacro*.{h,m}
+* NSKeyedArchiver*.{h,m}
+* NSKeyedUnarchiver*.{h,m}
 
 
 ## Usage
 
-Macros are provided for conveniently working with `NSUserDefaults` and `NSKeyedArchiver` and `NSKeyedUnarchiver`.
+Macros are provided for conveniently working with `NSUserDefaults` and `NSCoding`.
 
 **Important**: The parameter you pass can be a property, an instance variable, or a local variable. It is critical to remember that the name of the parameter you pass is used to generate the string used for the key (see the Stringification section). So once you set a default or encode you must use either the same or an identically named property, instance variable, or local variable for getting the default or decoding.
 
