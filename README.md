@@ -47,13 +47,7 @@ You can install MSStringifyMacros in almost any Mac OS X or iOS project. I'm not
 
 2. Install the pod(s) by running: `pod install`
 
-3. Where you need it:
-
-    `#import "MSStringifyMacros_Archiving.h"` 
-    
-    or 
-    
-    `#import "MSStringifyMacros_UserDefaults.h"`
+3. Where you need it: `#import "MSStringifyMacros_Archiving.h"` or `#import "MSStringifyMacros_UserDefaults.h"`
 
 
 ### Source Files
@@ -69,12 +63,12 @@ Alternatively you can directly add the required source files to your project:
 
 Macros are provided for conveniently working with `NSUserDefaults` and `NSCoding`.
 
-**Important**: The parameter you pass can be a property, an instance variable, or a local variable. It is critical to remember that the name of the parameter you pass is used to generate the string used for the key (see the Stringification section). So once you set a default or encode you must use either the same or an identically named property, instance variable, or local variable for getting the default or decoding.
-
 
 ### NSUserDefaults
 
 The macros support all the common `NSUserDefaults` methods for conveniently setting and getting defaults.
+
+**Important**: The parameter you pass can be a property, an instance variable, or a local variable. It is critical to remember that the name of the parameter you pass is used to generate the string used for the key (see the Stringification section). So once you set a default or encode you must use either the same or an identically named property, instance variable, or local variable for getting the default or decoding.
 
 ```Objective-C
 // BOOL...
@@ -147,17 +141,17 @@ The `NSCoding` macros are in two groups. The first group is for archiving and un
 
 These macros provide a convenient shortcut for `NSKeyedArchiver`'s `archiveRootObject:toFile:` and `NSKeyedUnarchiver`'s `unarchiveObjectWithFile:`.
 
-Similar to the `NSUserDefaults` macros, these two macros stringify the object you pass and use the resulting string as the file name. The file is written to and read from the Documents directory.
+Similar to the `NSUserDefaults` macros, these macros stringify the object you pass and use the resulting string as the file name. The file is written to and read from the Documents directory.
 
 ```Objective-C
 // archiving...
 BOOL result;
 archiveToDocsDirectory(object, result);
-if (result == NO) { <your code here> };
+if (result == NO) {    };
 
 // unarchiving...
 unarchiveFromDocsDirectory(object);
-if (object == nil { <your code here> };
+if (object == nil {    };
 ```
 
 These two work the same but allow you to specify the filename.
@@ -166,10 +160,10 @@ These two work the same but allow you to specify the filename.
 // archiving...
 BOOL result;
 archiveToDocsDirectoryUsingFilename(object, result, filename);
-if (result == NO) { <your code here> };
+if (result == NO) {    };
 
 unarchiveFromDocsDirectoryUsingFilename(object, filename);
-if (object == nil { <your code here> };
+if (object == nil {    };
 ```
 
 
@@ -258,7 +252,7 @@ stringify(foo);
 is replaced by the preprocessor with 'foo' as a C string. But it gets better. By prefixing with @ you get an `NSString` object instead of a C string. How handy is that? So, given these macros...
 
 ```Objective-C
-#define NS_STRINGIFY(x) @#x
+#define NS_STRINGIFY(symbol) @#symbol
 define setDefaultForBool(BOOL) [[NSUserDefaults standardUserDefaults] setBool:BOOL forKey:NS_STRINGIFY(BOOL)]
 ```
 
